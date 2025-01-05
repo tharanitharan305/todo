@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-adsense-account" content="ca-pub-1847931953975460">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+ 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1847931953975460" crossorigin="anonymous"></script>
+  <script>
+      function onAdd(){
+          var i=0
+          var todo=document.querySelector(".todoInput").value;
+          var todoDisplay=document.querySelector(".todo")
+          if(todo.length>0){
+              var delButton=document.createElement("button" ,onclick="deleteTodo()",name="delete")
+              var todonow=document.createElement("li")
+              i++;
+              todonow.innerHTML=todo+"<button id=${i} onclick='deleteTodo(event)'>delete</button>"
+              document.querySelector(".todo").append(todonow)
+          }
+          else{
+              console.log(todoDisplay)
+              var excep=document.createElement("h4")
+              excep.textContent="type anything"
+              document.querySelector(".input").insertAdjacentElement("afterbegin",excep)
+          }
+      }
+      function deleteTodo(event){
+        //here the event holds the total details of the button 
+        //if we implement event.target it targets the button if event.target.remove() it only removes the button the parent element of the button is that list li so it got removed
+        event.target.parentElement.remove()
+      }
+  </script>
+</head>
+<body>
+  <div class="input"><input type="text" class="todoInput"></div>
+<button id="button" onclick="onAdd()"> ADD</button>
+<ul class="todo">
+  <li>
+    hello
+
+  </li>
+</ul>
+</body>
+</html>
+
